@@ -4,9 +4,15 @@ import tkinter as tk
 from PIL import Image, ImageTk
 
 #parsing arguments
-parser = argparse.ArgumentParser()
-parser.add_argument('path')
-parser.add_argument('-f', '--filter', type=str)
+parser = argparse.ArgumentParser(
+    usage='SimpleRenamer.py directory_path [-f filter]',
+    description='A Python tool to easily rename images')
+parser.add_argument('path', 
+    metavar='directory_path',
+    help='path to folder/directory where images are located')
+parser.add_argument('-f', type=str,
+    metavar='filter',
+    help='only rename files that include given string')
 args = parser.parse_args()
 
 #filter imagelist
